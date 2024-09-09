@@ -16,7 +16,7 @@ foreach ($routing as $route) {
         'routing' => $routing,
     ]);
 
-    file_put_contents('public/'.$route['template'].'.html', $contents[$route['template']]);
+    file_put_contents('docs/'.$route['template'].'.html', $contents[$route['template']]);
 }
 
 $currentRoute = $routing[$_SERVER['REQUEST_URI'] ?? $_SERVER['argv'][1]];

@@ -1,0 +1,27 @@
+localhost:443 {
+	root * /var/www/html/public
+	tls internal
+	try_files {path}.html
+	encode zstd gzip
+	file_server
+}
+
+localhost:9000 {
+	@isInFirst file {
+		root /var/www/html/public
+	}
+
+	root @isInFirst /var/www/html/public
+	root * /var/www/html
+
+	tls internal
+	encode zstd gzip
+	file_server
+	php_fastcgi php:9000 {
+		resolve_root_symlink
+	}
+	@phpFile {
+		path *.php*
+	}
+	error @phpFile "Not found" 404
+}

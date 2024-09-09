@@ -1,0 +1,8 @@
+/: { template: index, title: Startpagina }
+/de-stichting: { template: de-stichting, title: De Stichting }
+/algemene-gegevens: { template: algemene-gegevens, title: Algemene gegevens }
+/15-jaar-de-vlinder: { template: 15-jaar-de-vlinder, title: 15 Jaar De Vlinder }
+/financieel-verslag: { template: financieel-verslag, title: Financieel verslag }
+/nieuwe-onderwerpen: { template: nieuwe-onderwerpen, title: Nieuwe onderwerpen }
+/fondsen: { template: fondsen, title: Fondsen }
+/vrienden-van-de-vlinder: { template: vrienden-van-de-vlinder, title: Vrienden van De Vlinder }

@@ -1,7 +1,12 @@
 body {
     font-family: Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.1875;
     padding: 10px;
     color: #000;
+}
+#navigation {
+    display: inline-block;
 }
 #navigation ul {
     list-style-type: none;
@@ -26,6 +31,48 @@ body {
     background: linear-gradient(to bottom, #3176b1 0%, #285c8c 100%);
     color: #FFF;
 }
-#content {
+#date {
+    text-align: right;
     padding: 20px;
+}
+#content {
+    padding: 10px;
+    padding-left: 50px;
+    width: 700px;
+}
+
+#index #building {
+    position: absolute;
+    left: 100px;
+}
+#index #butterflies {
+    position: absolute;
+    left: 400px;
+}
+#index #title {
+    color: #32cd32;
+    font-weight: bold;
+    font-size: 21px;
+    padding: 10px;
+}
+#index #subtitle {
+    color: #dc143c;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 10px;
+}
+#index #contact {
+    margin-top: 30px;
+    margin-left: 120px;
+}
+#index #contact a {
+    color: #000;
+    text-decoration: none;
+}
+#vrienden-van-de-vlinder p {
+    font-size: 12px;
+}
+#vrienden-van-de-vlinder table tr td {
+    padding: 0 60px 5px 0;
+    font-weight: bold;
 }

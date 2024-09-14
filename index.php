@@ -23,7 +23,7 @@ $twig = new Environment(new FilesystemLoader(__DIR__.'/templates'));
 $contents = [];
 foreach ($routing as $route) {
     $contents[$route['template']] = $twig->render('pages/'.$route['template'].'.html.twig', [
-        'title' => $route['title'],
+        'currentRoute' => $route,
         'routing' => $routing,
     ]);
 

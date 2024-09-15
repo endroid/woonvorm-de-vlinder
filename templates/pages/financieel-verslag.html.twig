@@ -1,5 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% import _self as macros %}
+
 {% block content %}
-    Financieel verslag
+
+    {{ macros.title('Financiële verantwoording 2023') }}
+
+    <img src="/images/financieel_verslag_2023.jpg" width="723" />
+
 {% endblock %}

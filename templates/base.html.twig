@@ -18,6 +18,7 @@
             <div id="date" data-controller="date"></div>
         </div>
         <div id="content">
+            {% macro title(title) %}<div id="title">{{ title }}</div><br />{% endmacro %}
             {% block content %}{% endblock %}
         </div>
     </body>

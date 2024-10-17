@@ -30,6 +30,8 @@ jobs:
           tools: composer:v2
         env:
           COMPOSER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Composer dependencies
+        run: composer install --prefer-dist
       - name: Build pages
         run: php index.php /
       - name: Upload artifact

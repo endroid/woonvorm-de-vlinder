@@ -1,6 +1,8 @@
 {
     "require": {
         "twig/twig": "^3.14",
-        "symfony/yaml": "^7.1"
+        "symfony/yaml": "^7.1",
+        "gajus/dindent": "^2.0",
+        "symfony/var-dumper": "^7.1"
     }
 }

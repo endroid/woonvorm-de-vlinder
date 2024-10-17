@@ -1,4 +1,5 @@
 /compose.yml
+/composer.lock
 /docs/*.html
 /docs/sitemap.xml
 /vendor/

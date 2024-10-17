@@ -1,8 +1,10 @@
 <?php
 
+use Gajus\Dindent\Indenter;
 use Symfony\Component\Yaml\Yaml;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
+use voku\helper\HtmlMin;
 
 include 'vendor/autoload.php';
 
@@ -17,19 +19,24 @@ if (is_file($docsPath.$requestUri)) {
     die;
 }
 
-$routing = Yaml::parseFile(__DIR__.'/config/routes.yaml');
+$routes = Yaml::parseFile(__DIR__.'/config/routes.yaml');
 $twig = new Environment(new FilesystemLoader(__DIR__.'/templates'));
 
-$contents = [];
-foreach ($routing as $route) {
-    $contents[$route['template']] = $twig->render('pages/'.$route['template'].'.html.twig', [
-        'currentRoute' => $route,
-        'routing' => $routing,
-    ]);
+$indenter = new Indenter();
 
+$contents = [];
+foreach ($routes as $route) {
+    $contents[$route['template']] = $indenter->indent($twig->render('pages/'.$route['template'].'.html.twig', [
+        'currentRoute' => $route,
+        'routes' => $routes,
+    ]));
     file_put_contents(__DIR__.'/docs/'.$route['template'].'.html', $contents[$route['template']]);
 }
 
-$currentRoute = $routing[$requestUri];
+file_put_contents(__DIR__.'/docs/sitemap.xml', $indenter->indent($twig->render('sitemap.xml.twig', [
+    'routes' => $routes,
+])));
+
+$currentRoute = $routes[$requestUri];
 
 echo $contents[$currentRoute['template']];

@@ -1,2 +1,4 @@
 /compose.yml
+/docs/*.html
+/docs/sitemap.xml
 /vendor/

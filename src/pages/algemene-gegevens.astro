@@ -1,0 +1,169 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Algemene gegevens">
+  <Navigation />
+
+  <div id="content">
+    <h2>Contactgegevens</h2>
+    <table>
+      <tr><td>Correspondentieadres:</td><td>Beeksestraat 23, 4841 GA Prinsenbeek</td></tr>
+      <tr><td>Telefoonnummer:</td><td>06 53 64 87 89</td></tr>
+      <tr><td>E-mailadres:</td><td><a href="mailto:info@woonvormdevlinderprinsenbeek.nl">info@woonvormdevlinderprinsenbeek.nl</a></td></tr>
+      <tr><td>Fiscaalnummer RSIN:</td><td>8150.33.734</td></tr>
+      <tr><td>IBAN:</td><td>NL25ABNA 0244 676 984</td></tr>
+      <tr><td>Nummer KvK:</td><td>20121611</td></tr>
+    </table>
+
+    <h2>Bestuur</h2>
+    <table>
+      <tr><td>Voorzitter:</td><td>Mevr. Mr. J. Roelen</td></tr>
+      <tr><td>Secretaris:</td><td>Dhr. H.P.J.M. Boot, mede als ouder betrokken bij het project</td></tr>
+      <tr><td>Penningmeester:</td><td>Dhr. H. Jansen</td></tr>
+    </table>
+
+    <h2>Beloningsbeleid</h2>
+    <p>
+      De leden van het bestuur van Stichting Woonvorm De Vlinder genieten geen beloning voor hun werkzaamheden.<br />
+      Zij hebben wel recht op vergoeding van de voor hen in de uitoefening van hun functie gemaakte kosten.
+    </p>
+
+    <h2>Doelstellingen</h2>
+    <p>Stichting Woonvorm De Vlinder heeft als doel:</p>
+    <ul>
+      <li>het bevorderen, realiseren en in stand houden van zelfstandige woonvoorzieningen ten behoeve van mensen met een beperking, waaronder uitdrukkelijk begrepen het verwerven van fondsen daarvoor</li>
+      <li>het verlenen van bemiddeling bij het verwerven van de noodzakelijke zorgverlening op medisch en sociaal gebied</li>
+      <li>het bemiddelen bij het afsluiten van individuele huurcontracten</li>
+    </ul>
+
+    <h2>Begeleid wonen: zelfstandig, maar niet alleen</h2>
+    <p>
+      Stichting Woonvorm De Vlinder heeft in 2005 opdracht gegeven voor de bouw van "De Vlinder", een kleinschalig wooncomplex met vijf appartementen.
+    </p>
+    <p>
+      De bewoners van woonvorm "De Vlinder" wonen zoveel mogelijk zelfstandig, maar zeker niet alleen.<br />
+      Ze kunnen elkaar immers dagelijks ontmoeten in de gezamenlijke woon/eetkamer en keuken.<br />
+      Bovendien worden ze – afhankelijk van hun persoonlijke behoefte – ondersteund door de zorgverlening van <strong>Stichting Prisma</strong>.<br />
+      De hiertoe benodigde indicatie wordt onafhankelijk vastgesteld door Stichting MEE Brabant Noord.
+    </p>
+    <p>
+      In haar zorgverlening stelt Stichting Prisma de kwaliteit van het leven en volwaardig burgerschap centraal.<br />
+      Kwaliteit van leven betekent onder meer dat cliënten (vriendschappelijke) relaties kunnen aangaan en onderhouden,<br />
+      zelf keuzes kunnen maken en beslissingen kunnen nemen en zelfstandig boodschappen kunnen doen.<br />
+      Kortom: dat ze actief kunnen deelnemen aan de samenleving.<br />
+      Prisma zoekt daarom voortdurend naar mogelijkheden om mensen met een verstandelijke beperking zeggenschap te laten hebben en houden over hun leven.<br />
+      Iedereen - met of zonder beperking - heeft tenslotte recht op een zichtbare, volwaardige plaats in de samenleving.
+    </p>
+
+    <img src="/images/fittin.jpg" alt="Fittin logo" />
+    <p>
+      De Vlinder werkt nauw samen met <strong>Fittin</strong> bij het verlenen van de zorg aan onze bewoners.<br />
+      <br />
+      <strong>Dromen over hoe jouw kind gaat wonen</strong><br />
+      <br />
+      Als je kind niet meer thuis kan wonen vanwege een beperking, dan gaat er veel door je heen.<br />
+      Kan mijn kind dicht bij huis blijven wonen? Kan ik zelf keuzes maken over het personeel?<br />
+      Mag de hond ook mee? Jij weet wat het beste is voor je kind, maar hoe krijg je dat voor elkaar?
+    </p>
+
+    <p>
+      Met een particulier wooninitiatief geef je zelf invulling aan de toekomst van je kind.<br />
+      Fittin ondersteunt ouders en verwanten bij het opzetten van een particulier wooninitiatief.<br />
+      <strong>Jij hebt een idee, wij denken mee.</strong>
+    </p>
+
+    <p>
+      Waarom Fittin?<br />
+    </p>
+    <ul>
+      <li>Regie ligt bij de ouders</li>
+      <li>Jarenlange ervaring, als onderdeel van Prisma</li>
+      <li>Persoonlijk advies en ondersteuning in alle fases</li>
+    </ul>
+
+    <p>
+      Kijk voor meer informatie over Fittin op: <a href="https://fittin.info" target="_blank">fittin.info</a>
+    </p>
+  </div>
+</Layout>
+
+<style>
+  #content {
+    padding: 10px;
+    width: 100%;
+    max-width: 950px;
+  }
+
+  h2 {
+    color: #285c8c;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    font-size: 18px;
+  }
+
+  table {
+    margin-bottom: 20px;
+    border-spacing: 0;
+  }
+
+  table td {
+    padding: 5px 20px 5px 0;
+    vertical-align: top;
+  }
+
+  table td:first-child {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+
+  p {
+    width: 650px;
+    line-height: 1.5;
+    margin: 15px 0;
+  }
+
+  ul {
+    margin: 15px 0;
+    padding-left: 25px;
+  }
+
+  ul li {
+    margin: 8px 0;
+    line-height: 1.5;
+  }
+
+  a {
+    color: #285c8c;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  img {
+    margin: 20px 0;
+  }
+
+  @media (max-width: 768px) {
+    p {
+      width: 100%;
+    }
+
+    table {
+      display: block;
+      overflow-x: auto;
+    }
+
+    table td {
+      padding: 5px 10px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+</style>

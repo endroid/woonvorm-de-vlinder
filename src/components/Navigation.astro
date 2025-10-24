@@ -1,0 +1,109 @@
+---
+const currentPath = Astro.url.pathname;
+
+// Define navigation items
+const navItems = [
+  { path: '/', title: 'Startpagina' },
+  { path: '/de-stichting', title: 'De Stichting' },
+  { path: '/algemene-gegevens', title: 'Algemene gegevens' },
+  { path: '/15-jaar-de-vlinder', title: '15 Jaar De Vlinder' },
+  { path: '/financieel-verslag', title: 'Financieel verslag' },
+  { path: '/nieuwe-onderwerpen', title: 'Nieuwe onderwerpen' },
+  { path: '/fondsen', title: 'Fondsen' },
+  { path: '/vrienden-van-de-vlinder', title: 'Vrienden van De Vlinder' },
+];
+
+// Get current date in Dutch format
+const currentDate = new Date().toLocaleDateString('nl-NL', {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+---
+
+<div id="navigation" transition:name="navigation" transition:animate="initial">
+  <div id="date">{currentDate}</div>
+  <ul>
+    {navItems.map((item) => (
+      <li>
+        <a
+          href={item.path}
+          class={currentPath === item.path || (item.path === '/' && currentPath === '/index') ? 'active' : ''}
+        >
+          {item.title}
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<style>
+  #navigation {
+    display: inline-block;
+    width: 100%;
+    max-width: 1050px;
+    margin-bottom: 20px;
+  }
+
+  #date {
+    text-align: right;
+    padding: 5px 0;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+
+  #navigation ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  #navigation ul li {
+    margin: 2px;
+  }
+
+  #navigation ul li a {
+    display: block;
+    text-align: center;
+    background: linear-gradient(to bottom, #fdfdfd 0%, #d4dced 100%);
+    color: #000;
+    padding: 6px 10px;
+    text-decoration: none;
+    border: 1px solid #285c8c;
+    transition: background 0.3s ease, color 0.3s ease;
+    white-space: nowrap;
+  }
+
+  #navigation ul li a:hover,
+  #navigation ul li a.active {
+    background: linear-gradient(to bottom, #3176b1 0%, #285c8c 100%);
+    color: #fff;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    #date {
+      text-align: center;
+      margin-bottom: 15px;
+    }
+
+    #navigation ul {
+      flex-direction: column;
+    }
+
+    #navigation ul li {
+      width: 100%;
+      margin: 2px 0;
+    }
+
+    #navigation ul li a {
+      text-align: left;
+      padding: 10px;
+    }
+  }
+</style>

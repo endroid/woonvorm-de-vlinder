@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Financieel verslag">
+  <Navigation />
+
+  <div id="content">
+    <div id="title">Financiële verantwoording 2024</div><br />
+
+    <img src="/images/financieel_verslag_2024.png" alt="Financieel verslag 2024" width="723" />
+  </div>
+</Layout>
+
+<style>
+  #content {
+    padding: 10px;
+    width: 100%;
+    max-width: 950px;
+  }
+
+  #title {
+    font-size: 19px;
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: #87CEFA;
+    border: 1px solid #285c8c;
+    margin: 20px 0;
+  }
+
+  img {
+    margin-top: 20px;
+    max-width: 100%;
+    height: auto;
+  }
+
+  @media (max-width: 768px) {
+    img {
+      width: 100%;
+    }
+  }
+</style>

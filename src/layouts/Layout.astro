@@ -1,22 +1,94 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+
+export interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description = "Woonvorm De Vlinder - Kleinschalig wooncomplex voor mensen met een beperking in Prinsenbeek" } = Astro.props;
+---
+
 <!doctype html>
-<html lang="en">
+<html lang="nl">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>{title} - Woonvorm De Vlinder Prinsenbeek</title>
+		<ViewTransitions />
 	</head>
 	<body>
 		<slot />
 	</body>
 </html>
 
-<style>
-	html,
+<style is:global>
+	html {
+		font-family: Arial, sans-serif;
+		font-size: 14px;
+		line-height: 1.1875;
+	}
+
 	body {
 		margin: 0;
-		width: 100%;
-		height: 100%;
+		padding: 10px;
+		color: #000;
+		background-color: #fff;
+		min-height: 100vh;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	a {
+		color: inherit;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		margin-top: 0;
+	}
+
+	p {
+		line-height: 1.5;
+	}
+
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	/* View Transitions */
+	::view-transition-old(root),
+	::view-transition-new(root) {
+		animation-duration: 0.4s;
+		animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	}
+
+	@keyframes fade-in {
+		from { opacity: 0; }
+	}
+
+	@keyframes fade-out {
+		to { opacity: 0; }
+	}
+
+	@keyframes slide-from-right {
+		from { transform: translateX(30px); }
+	}
+
+	@keyframes slide-to-left {
+		to { transform: translateX(-30px); }
+	}
+
+	::view-transition-old(root) {
+		animation: 0.4s cubic-bezier(0.4, 0, 0.2, 1) both fade-out, 0.4s cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+	}
+
+	::view-transition-new(root) {
+		animation: 0.4s cubic-bezier(0.4, 0, 0.2, 1) both fade-in, 0.4s cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
 	}
 </style>

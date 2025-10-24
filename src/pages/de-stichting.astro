@@ -1,0 +1,53 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="De Stichting">
+  <Navigation />
+
+  <div id="content">
+    <br />
+    <p>
+      De stichting is in juni 2005 opgericht door vijf ouderparen uit Prinsenbeek en draagt de naam<br />
+      <strong>"STICHTING WOONVORM DE VLINDER"</strong>.
+    </p>
+    <p>
+      De stichting beheert "De Vlinder", een kleinschalig wooncomplex met vijf appartementen aan de Kapelstraat in <strong>Prinsenbeek</strong>, gemeente Breda.
+    </p>
+    <p>
+      Deze appartementen worden momenteel -onder begeleiding- zelfstandig bewoond door vijf mensen met een verstandelijke beperking.
+    </p>
+    <p><strong>De huidige bewoners zijn:</strong></p>
+    <p><img src="/images/bewoners.jpg" alt="Bewoners van De Vlinder" width="700" /></p>
+  </div>
+</Layout>
+
+<style>
+  #content {
+    padding: 10px;
+    width: 100%;
+    max-width: 950px;
+  }
+
+  p {
+    width: 650px;
+    line-height: 1.5;
+    margin: 15px 0;
+  }
+
+  img {
+    margin-top: 20px;
+  }
+
+  @media (max-width: 768px) {
+    p {
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+</style>

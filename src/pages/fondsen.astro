@@ -1,0 +1,112 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<Layout title="Fondsen">
+  <Navigation />
+
+  <div id="content">
+    <div id="title">Fondsen</div><br />
+
+    <div id="logos">
+      <img src="/images/fondsen.jpg" alt="Fondsen logos" />
+    </div>
+
+    <p>Woonvorm "De Vlinder" werd mede mogelijk gemaakt door:</p>
+
+    <h2>Stichting Nuts Ohra</h2>
+    <p>
+      Stichting Nuts Ohra is voortgekomen uit de verzekeraars Nuts en Ohra, die beide
+      een lange traditie hebben in de verzekering van zorg. De stichting steunt met
+      de jaarlijkse inkomsten uit haar aandelenvermogen projecten in de gezondheidszorg
+      in brede zin. De voorkeur gaat daarbij uit naar projecten die een bijdrage leveren
+      aan innovaties en naar projecten die noden helpen verminderen.
+    </p>
+
+    <h2>Oranje Fonds</h2>
+    <p>
+      Het Oranje Fonds staat voor een samenleving waarin het goed samen leven is en waarin
+      mensen tot hun recht komen. Met haar bijdragen wil het fonds de integratie, participatie
+      en sociale veiligheid versterken en sociale uitsluiting verminderen binnen het
+      Koninkrijk der Nederlanden.
+    </p>
+
+    <h2>Fonds Verstandelijk Gehandicapten</h2>
+
+    <h3>Overige fondsen</h3>
+    <p class="other-funds">
+      Charitatief Fonds De Grez-Mahie<br />
+      Olga Heldring Fonds - Fundatie van den Santheuvel<br />
+      Oranje Comité Prinsenbeek<br />
+      Stichting Madurodam<br />
+      Steunfonds Stichting Voorzorg Utrecht<br />
+      Stichting Anton Jurgens Fonds 1969<br />
+    </p>
+  </div>
+</Layout>
+
+<style>
+  #content {
+    padding: 10px;
+    width: 100%;
+    max-width: 950px;
+    position: relative;
+  }
+
+  #title {
+    font-size: 19px;
+    padding: 5px 10px;
+    display: inline-block;
+    background-color: #87CEFA;
+    border: 1px solid #285c8c;
+    margin: 20px 0;
+  }
+
+  #logos {
+    position: absolute;
+    top: 100px;
+    left: 550px;
+  }
+
+  p {
+    width: 500px;
+    line-height: 1.5;
+    margin: 15px 0;
+  }
+
+  h2 {
+    color: #285c8c;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+
+  h3 {
+    color: #285c8c;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 14px;
+  }
+
+  .other-funds {
+    line-height: 1.8;
+  }
+
+  @media (max-width: 768px) {
+    #logos {
+      position: static;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    p {
+      width: 100%;
+    }
+
+    #logos img {
+      max-width: 100%;
+      height: auto;
+    }
+  }
+</style>

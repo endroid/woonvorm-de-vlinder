@@ -23,7 +23,6 @@ const currentDate = new Date().toLocaleDateString('nl-NL', {
 ---
 
 <div id="navigation" transition:name="navigation" transition:animate="initial">
-  <div id="date">{currentDate}</div>
   <ul>
     {navItems.map((item) => (
       <li>
@@ -36,22 +35,24 @@ const currentDate = new Date().toLocaleDateString('nl-NL', {
       </li>
     ))}
   </ul>
+  <div id="date">{currentDate}</div>
 </div>
 
 <style>
   #navigation {
+    position: relative;
     display: inline-block;
     width: 100%;
     max-width: 1050px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
   }
 
   #date {
+    position: absolute;
+    right: 0;
+    bottom: -30px;
     text-align: right;
-    padding: 5px 0;
-    margin-bottom: 10px;
     font-size: 14px;
-    color: #333;
   }
 
   #navigation ul {
@@ -88,8 +89,11 @@ const currentDate = new Date().toLocaleDateString('nl-NL', {
   /* Responsive adjustments */
   @media (max-width: 768px) {
     #date {
+      position: static;
       text-align: center;
-      margin-bottom: 15px;
+      padding: 10px;
+      margin-top: 10px;
+      border-top: 1px solid #ccc;
     }
 
     #navigation ul {

@@ -1,5 +1,7 @@
 ---
 import { ViewTransitions } from 'astro:transitions';
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
 
 export interface Props {
 	title: string;
@@ -15,56 +17,298 @@ const { title, description = "Woonvorm De Vlinder - Kleinschalig wooncomplex voo
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="description" content={description} />
+		<meta name="theme-color" content="#235e8d" />
 		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet" />
 		<meta name="generator" content={Astro.generator} />
 		<title>{title} - Woonvorm De Vlinder Prinsenbeek</title>
 		<ViewTransitions />
 	</head>
 	<body>
-		<slot />
+		<Navigation />
+		<main id="main">
+			<slot />
+		</main>
+		<Footer />
 	</body>
 </html>
 
 <style is:global>
-	html {
-		font-family: Arial, sans-serif;
-		font-size: 14px;
-		line-height: 1.1875;
-	}
-
-	body {
-		margin: 0;
-		padding: 10px;
-		color: #000;
-		background-color: #fff;
-		min-height: 100vh;
+	:root {
+		--brand-800: #1c4e75;
+		--brand-700: #235e8d;
+		--brand-600: #2e6fa3;
+		--brand-100: #d9e8f4;
+		--brand-50: #eef5fa;
+		--green-700: #43763a;
+		--green-600: #4f8b3b;
+		--green-100: #e4f0dc;
+		--ink-900: #1f2d3a;
+		--ink-600: #4a5b6b;
+		--bg: #f5f8fa;
+		--surface: #ffffff;
+		--line: #e3eaf0;
+		--radius-lg: 18px;
+		--radius-md: 12px;
+		--radius-sm: 8px;
+		--shadow-sm: 0 1px 2px rgb(16 42 67 / 0.06), 0 1px 3px rgb(16 42 67 / 0.08);
+		--shadow-md: 0 6px 24px rgb(16 42 67 / 0.10);
+		--font: 'Nunito', system-ui, -apple-system, 'Segoe UI', sans-serif;
 	}
 
 	* {
 		box-sizing: border-box;
 	}
 
-	a {
-		color: inherit;
+	html {
+		font-family: var(--font);
+		font-size: 17px;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		margin: 0;
+		color: var(--ink-900);
+		background-color: var(--bg);
+		line-height: 1.7;
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	main {
+		flex: 1;
+		width: 100%;
+	}
+
+	.container {
+		width: 100%;
+		max-width: 1100px;
+		margin-inline: auto;
+		padding-inline: clamp(1rem, 4vw, 2rem);
+	}
+
+	.container-narrow {
+		max-width: 840px;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
-		margin-top: 0;
+		margin: 0;
+		line-height: 1.25;
+		color: var(--brand-800);
+		text-wrap: balance;
+	}
+
+	h1 {
+		font-size: clamp(1.9rem, 4vw, 2.6rem);
+		font-weight: 800;
+		letter-spacing: -0.02em;
+	}
+
+	h2 {
+		font-size: 1.4rem;
+		font-weight: 800;
+		margin-bottom: 0.6em;
+	}
+
+	h3 {
+		font-size: 1.1rem;
+		font-weight: 700;
+		margin-bottom: 0.5em;
 	}
 
 	p {
-		line-height: 1.5;
+		margin: 0 0 1em;
+		max-width: 70ch;
+	}
+
+	a {
+		color: var(--brand-700);
+		text-decoration-color: var(--brand-100);
+		text-underline-offset: 3px;
+		transition: color 0.15s ease;
+	}
+
+	a:hover {
+		color: var(--brand-600);
+	}
+
+	/* Long addresses must not break mid-domain; slightly smaller so they fit */
+	a[href^="mailto:"] {
+		font-size: 0.95em;
+		overflow-wrap: normal;
+		word-break: keep-all;
 	}
 
 	img {
 		max-width: 100%;
 		height: auto;
+		display: block;
+	}
+
+	ul {
+		margin: 0 0 1em;
+	}
+
+	:focus-visible {
+		outline: 3px solid var(--brand-600);
+		outline-offset: 2px;
+		border-radius: 4px;
+	}
+
+	/* Shared page building blocks */
+	.page-header {
+		padding: clamp(2.2rem, 5vw, 3.5rem) 0 clamp(1.6rem, 3vw, 2.2rem);
+	}
+
+	.page-header .eyebrow {
+		display: inline-block;
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--green-700);
+		margin-bottom: 0.5rem;
+	}
+
+	.page-header .lead {
+		font-size: 1.15rem;
+		color: var(--ink-600);
+		max-width: 62ch;
+		margin: 0.9rem 0 0;
+	}
+
+	.page-body {
+		padding-bottom: clamp(3rem, 6vw, 4.5rem);
+	}
+
+	.card {
+		background: var(--surface);
+		border: 1px solid var(--line);
+		border-radius: var(--radius-lg);
+		box-shadow: var(--shadow-sm);
+		padding: clamp(1.4rem, 3vw, 2rem);
+	}
+
+	.card > :last-child {
+		margin-bottom: 0;
+	}
+
+	.card h2:not(:first-child) {
+		margin-top: 1.6em;
+	}
+
+	.btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		background: var(--brand-700);
+		color: #fff;
+		font-weight: 700;
+		font-size: 0.95rem;
+		padding: 0.65rem 1.25rem;
+		border-radius: 999px;
+		text-decoration: none;
+		box-shadow: var(--shadow-sm);
+		transition: background 0.15s ease, transform 0.15s ease;
+	}
+
+	.btn:hover {
+		background: var(--brand-600);
+		color: #fff;
+		transform: translateY(-1px);
+	}
+
+	.badge {
+		display: inline-flex;
+		align-items: flex-start;
+		gap: 0.55rem;
+		background: var(--green-100);
+		color: var(--green-700);
+		font-size: 0.85rem;
+		font-weight: 700;
+		line-height: 1.4;
+		padding: 0.55rem 1.1rem;
+		border-radius: var(--radius-lg);
+	}
+
+	.badge svg {
+		flex-shrink: 0;
+		margin-top: 0.25em;
+	}
+
+	figure {
+		margin: 0;
+	}
+
+	figure img {
+		border-radius: var(--radius-md);
+		box-shadow: var(--shadow-sm);
+	}
+
+	/* Definition-list rows used for contact details, board members, ... */
+	.dl {
+		display: grid;
+		grid-template-columns: max-content 1fr;
+		gap: 0.45rem 1.5rem;
+		margin: 0;
+	}
+
+	.dl dt {
+		font-weight: 700;
+		color: var(--ink-600);
+	}
+
+	.dl dd {
+		margin: 0;
+		overflow-wrap: anywhere;
+	}
+
+	@media (max-width: 560px) {
+		.dl {
+			grid-template-columns: 1fr;
+			gap: 0;
+		}
+
+		.dl dt {
+			margin-top: 0.7rem;
+			font-size: 0.85rem;
+			text-transform: uppercase;
+			letter-spacing: 0.05em;
+		}
+	}
+
+	/* Tasteful list styling */
+	.checklist {
+		list-style: none;
+		padding: 0;
+	}
+
+	.checklist li {
+		position: relative;
+		padding-left: 1.8rem;
+		margin: 0.55rem 0;
+		max-width: 70ch;
+	}
+
+	.checklist li::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		top: 0.42em;
+		width: 0.95rem;
+		height: 0.95rem;
+		border-radius: 50%;
+		background: var(--green-100) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%234f8b3b' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round' d='M3.5 8.5l3 3 6-7'/%3E%3C/svg%3E") center / 0.7rem no-repeat;
 	}
 
 	/* View Transitions */
 	::view-transition-old(root),
 	::view-transition-new(root) {
-		animation-duration: 0.4s;
+		animation-duration: 0.25s;
 		animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	}
 
@@ -76,19 +320,18 @@ const { title, description = "Woonvorm De Vlinder - Kleinschalig wooncomplex voo
 		to { opacity: 0; }
 	}
 
-	@keyframes slide-from-right {
-		from { transform: translateX(30px); }
-	}
-
-	@keyframes slide-to-left {
-		to { transform: translateX(-30px); }
-	}
-
 	::view-transition-old(root) {
-		animation: 0.4s cubic-bezier(0.4, 0, 0.2, 1) both fade-out, 0.4s cubic-bezier(0.4, 0, 0.2, 1) both slide-to-left;
+		animation: 0.25s cubic-bezier(0.4, 0, 0.2, 1) both fade-out;
 	}
 
 	::view-transition-new(root) {
-		animation: 0.4s cubic-bezier(0.4, 0, 0.2, 1) both fade-in, 0.4s cubic-bezier(0.4, 0, 0.2, 1) both slide-from-right;
+		animation: 0.25s cubic-bezier(0.4, 0, 0.2, 1) both fade-in;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		::view-transition-old(root),
+		::view-transition-new(root) {
+			animation: none;
+		}
 	}
 </style>

@@ -1,102 +1,146 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
 ---
 
 <Layout title="Home">
-  <Navigation />
-
-  <div id="content">
-    <div id="butterflies">
-      <img src="/images/watermerk.jpg" alt="Vlinders watermerk" width="400" />
-      <div id="contact">
-        Wilt u meer informatie over de Vlinder?<br />
-        Zie <strong>Contactgegevens</strong> op tabblad <strong><a href="/algemene-gegevens">Algemene gegevens</a></strong><br />
-        <br />
-        Of stuur een e-mail naar<br />
-        <strong><a href="mailto:info@woonvormdevlinderprinsenbeek.nl">info@woonvormdevlinderprinsenbeek.nl</a></strong>
+  <div class="hero">
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <span class="eyebrow">Kleinschalig wonen in Prinsenbeek</span>
+        <h1>Stichting Woonvorm &ldquo;De&nbsp;Vlinder&rdquo;</h1>
+        <p class="lead">
+          Een kleinschalig wooncomplex met vijf appartementen, waar mensen met
+          een beperking onder begeleiding zelfstandig wonen.
+        </p>
+        <p class="badge">
+          <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 8.5l3.5 3.5L13 4.5" /></svg>
+          Stichting Woonvorm &ldquo;De Vlinder&rdquo; heeft een ANBI-status
+        </p>
+        <div class="hero-contact card">
+          <p>
+            <strong>Wilt u meer informatie over De Vlinder?</strong><br />
+            Zie de contactgegevens op de pagina
+            <a href="/algemene-gegevens">Algemene gegevens</a>, of stuur ons een <span class="nowrap">e-mail</span>.
+          </p>
+          <a class="btn" href="mailto:info@woonvormdevlinderprinsenbeek.nl">
+            <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M4 6h16v12H4zM4 7l8 6 8-6" /></svg>
+            info@woonvormdevlinderprinsenbeek.nl
+          </a>
+        </div>
       </div>
-    </div>
-
-    <div id="building">
-      <img src="/images/gebouw.jpg" alt="Gebouw De Vlinder" width="400" /><br />
-      <div id="info">Stichting woonvorm "De Vlinder"</div>
-      <div id="extra-info">Stichting woonvorm "De Vlinder" heeft een ANBI-status</div>
+      <div class="hero-visual">
+        <img class="butterflies" src="/images/watermerk-transparent.webp" alt="" loading="lazy" />
+        <figure>
+          <img src="/images/gebouw.jpg" alt="Het gebouw van Woonvorm De Vlinder aan de Kapelstraat in Prinsenbeek" width="480" />
+          <figcaption>De Vlinder, Kapelstraat Prinsenbeek</figcaption>
+        </figure>
+      </div>
     </div>
   </div>
 </Layout>
 
 <style>
-  #content {
-    padding: 10px;
-    width: 100%;
-    max-width: 950px;
+  .hero {
+    padding: clamp(2.5rem, 6vw, 4.5rem) 0 clamp(3rem, 6vw, 5rem);
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--green-700);
+    margin-bottom: 0.6rem;
+  }
+
+  .lead {
+    font-size: 1.2rem;
+    color: var(--ink-600);
+    margin: 1rem 0 1.2rem;
+    max-width: 46ch;
+  }
+
+  .hero-contact {
+    margin-top: 1.6rem;
+    padding: 1.3rem 1.5rem;
+  }
+
+  .nowrap {
+    white-space: nowrap;
+  }
+
+  .hero-contact p {
+    margin-bottom: 0.9rem;
+  }
+
+  .hero-contact .btn {
+    max-width: 100%;
+  }
+
+  .hero-contact .btn svg {
+    flex-shrink: 0;
+  }
+
+  .hero-visual {
     position: relative;
-    min-height: 500px;
   }
 
-  #building {
+  .butterflies {
     position: absolute;
-    left: 50px;
-    top: 0;
+    top: -4rem;
+    right: -4.5rem;
+    width: 480px;
+    max-width: none;
+    opacity: 0.92;
+    z-index: 0;
+    pointer-events: none;
   }
 
-  #butterflies {
-    position: absolute;
-    left: 350px;
-    top: 0;
+  .hero-visual figure {
+    position: relative;
+    z-index: 1;
   }
 
-  #info {
-    color: #32cd32;
-    font-weight: bold;
-    font-size: 21px;
-    padding: 10px;
+  .hero-visual img:not(.butterflies) {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
   }
 
-  #extra-info {
-    color: #dc143c;
-    font-weight: bold;
-    font-size: 14px;
-    padding: 10px;
+  .hero-visual figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.85rem;
+    color: var(--ink-600);
+    text-align: center;
   }
 
-  #contact {
-    margin-top: 30px;
-    margin-left: 120px;
-    line-height: 1.5;
-  }
-
-  #contact a {
-    color: #000;
-    text-decoration: none;
-  }
-
-  #contact a:hover {
-    text-decoration: underline;
-  }
-
-  /* Responsive design */
-  @media (max-width: 768px) {
-    #content {
-      min-height: auto;
+  @media (max-width: 860px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
     }
 
-    #building,
-    #butterflies {
-      position: static;
-      margin-bottom: 30px;
-      text-align: center;
+    .hero-visual {
+      order: -1;
+      max-width: 480px;
     }
 
-    #contact {
-      margin-left: 0;
-      text-align: center;
+    .butterflies {
+      display: none;
     }
+  }
 
-    img {
-      max-width: 100%;
-      height: auto;
+  @media (max-width: 560px) {
+    .hero-contact .btn {
+      font-size: 0.85rem;
+      padding: 0.6rem 1rem;
     }
   }
 </style>

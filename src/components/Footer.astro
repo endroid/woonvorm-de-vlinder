@@ -1,0 +1,114 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <p class="footer-title">Woonvorm De Vlinder</p>
+      <p class="footer-desc">
+        Kleinschalig wooncomplex met vijf appartementen voor mensen met een
+        beperking aan de Kapelstraat in Prinsenbeek.
+      </p>
+      <p class="anbi">Stichting Woonvorm &ldquo;De Vlinder&rdquo; heeft een ANBI-status</p>
+    </div>
+    <div>
+      <p class="footer-title">Contact</p>
+      <ul>
+        <li>Beeksestraat 23, 4841 GA Prinsenbeek</li>
+        <li>06 53 64 87 89</li>
+        <li><a href="mailto:info@woonvormdevlinderprinsenbeek.nl">info@woonvormdevlinderprinsenbeek.nl</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="footer-title">Gegevens</p>
+      <ul>
+        <li>RSIN: 8150.33.734</li>
+        <li>IBAN: NL25ABNA 0244 676 984</li>
+        <li>KvK: 20121611</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>&copy; {year} Stichting Woonvorm De Vlinder</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--brand-800);
+    color: rgb(255 255 255 / 0.85);
+    margin-top: auto;
+    font-size: 0.95rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1.45fr 0.95fr;
+    gap: 2rem;
+    padding-top: 2.6rem;
+    padding-bottom: 2rem;
+  }
+
+  .footer-title {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .footer-desc {
+    max-width: 34ch;
+  }
+
+  .anbi {
+    display: inline-block;
+    background: rgb(255 255 255 / 0.1);
+    border-radius: var(--radius-lg);
+    padding: 0.55rem 1.1rem;
+    font-size: 0.82rem;
+    font-weight: 700;
+    line-height: 1.4;
+    color: #d3e8c4;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  li {
+    margin: 0.35rem 0;
+    overflow-wrap: anywhere;
+  }
+
+  a {
+    color: #fff;
+    text-decoration-color: rgb(255 255 255 / 0.35);
+  }
+
+  a:hover {
+    color: #d3e8c4;
+  }
+
+  .footer-bottom {
+    padding-bottom: 1.3rem;
+    font-size: 0.85rem;
+    color: rgb(255 255 255 / 0.75);
+  }
+
+  .footer-bottom p {
+    margin: 0;
+    max-width: none;
+    border-top: 1px solid rgb(255 255 255 / 0.15);
+    padding-top: 1.1rem;
+  }
+
+  @media (max-width: 760px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 1.6rem;
+    }
+  }
+</style>

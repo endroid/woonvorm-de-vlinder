@@ -1,43 +1,45 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navigation from '../components/Navigation.astro';
 ---
 
 <Layout title="Financieel verslag">
-  <Navigation />
+  <div class="container container-narrow">
+    <header class="page-header">
+      <span class="eyebrow">Verantwoording</span>
+      <h1>Financi&euml;le verantwoording 2025</h1>
+      <p class="lead">
+        Als stichting met ANBI-status leggen wij jaarlijks financi&euml;le verantwoording af.
+      </p>
+    </header>
 
-  <div id="content">
-    <div id="title">Financiële verantwoording 2025</div><br />
-
-    <img src="/images/financieel_verslag_2025.png" alt="Financieel verslag 2025" width="723" />
+    <div class="page-body">
+      <p class="report-actions">
+        <a class="btn" href="/images/financieel_verslag_2025.png" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" width="17" height="17" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M10.5 10.5m-6 0a6 6 0 1 0 12 0a6 6 0 1 0-12 0M15 15l5 5M8 10.5h5M10.5 8v5" /></svg>
+          Bekijk op volledige grootte
+        </a>
+      </p>
+      <figure class="card report">
+        <a href="/images/financieel_verslag_2025.png" target="_blank" rel="noopener">
+          <img src="/images/financieel_verslag_2025.png" alt="Financieel verslag 2025 van Stichting Woonvorm De Vlinder" width="723" />
+        </a>
+      </figure>
+    </div>
   </div>
 </Layout>
 
 <style>
-  #content {
-    padding: 10px;
+  .report-actions {
+    margin-bottom: 1.2rem;
+  }
+
+  .report {
+    padding: clamp(0.8rem, 2vw, 1.5rem);
+  }
+
+  .report img {
     width: 100%;
-    max-width: 950px;
-  }
-
-  #title {
-    font-size: 19px;
-    padding: 5px 10px;
-    display: inline-block;
-    background-color: #87CEFA;
-    border: 1px solid #285c8c;
-    margin: 20px 0;
-  }
-
-  img {
-    margin-top: 20px;
-    max-width: 100%;
-    height: auto;
-  }
-
-  @media (max-width: 768px) {
-    img {
-      width: 100%;
-    }
+    border-radius: var(--radius-sm);
+    box-shadow: none;
   }
 </style>
